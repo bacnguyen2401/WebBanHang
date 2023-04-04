@@ -1,0 +1,6 @@
+bin/
+Publish/
+Symbol Cache/
+obj/
+packages/
+.vs/
