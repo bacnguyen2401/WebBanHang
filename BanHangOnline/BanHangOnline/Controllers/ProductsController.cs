@@ -22,6 +22,12 @@ namespace BanHangOnline.Controllers
             return View(items);
         }
 
+        public ActionResult Detail(int id)
+        {
+            var item = _dbConect.Products.Find(id);
+            return View(item);
+        }
+
         public ActionResult ProductCategory(string alias , int? id)
         {
 

@@ -1,0 +1,70 @@
+﻿@model IEnumerable<BanHangOnline.Models.ShoppingCartItem>
+@using BanHangOnline.Models.Common;
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr class="text-center">
+            <th>STT</th>
+            <th>Ảnh sản phầm</th>
+            <th>Tên sản phẩm</th>
+            <th>Danh mục</th>
+            <th>Giá</th>
+            <th width="100">Số lượng</th>
+            <th>Thành tiền</th>
+            <th width="200">
+
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @if (Model != null && Model.Any())
+        {
+            var i = 0;
+            var totalPriveThanhToan = decimal.Zero;
+            foreach (var item in Model)
+            {
+                <tr class="text-center" id="trow_@item.ProductId">
+                    <td>@(i + 1)</td>
+                    <td><img src="@item.ProductImg" width="50" /></td>
+                    <td>
+                        <a href="/chi-tiet/@item.Alias-p@(item.ProductId)">
+                            @item.ProductName
+                        </a>
+                    </td>
+                    <td>@item.CategoryName</td>
+                    <td>@Common.FormatNumber(@item.Price, 0)</td>
+                    <td><input class="form-control" type="number" id="Quantity_@item.ProductId" value="@item.Quantity" /></td>
+                    <th>@Common.FormatNumber(@item.TotalPrice, 0)</th>
+                    <td>
+                        <a href="#" data-id="@item.ProductId" class="btn btn-sm btn-danger btnDelete">Xóa </a>
+
+                        <a href="#" data-id="@item.ProductId" class="btn btn-sm btn-success btnUpdate">Cập nhật</a>
+
+                    </td>
+                </tr>
+                i++;
+                totalPriveThanhToan += @item.TotalPrice;
+            }
+
+            <tr>
+                <th class="text-right" colspan="6">Tổng:</th>
+                <th class="text-center" colspan="2">@Common.FormatNumber(@totalPriveThanhToan, 2)</th>
+            </tr>
+
+            @*<tr>
+                <th class="text-right" colspan="6"></th>
+                <td colspan="2" class="text-center">
+                    <a href="#"  class="btn btn-sm btn-danger btnDeleteAll">Xóa </a>
+                    <a href="#"  class="btn btn-sm btn-success">Thanh Toasn </a>
+                </td>
+            </tr>*@
+
+        }
+        else
+        {
+            <tr>
+                <td class="text-center" colspan="8">Không có sản phẩm</td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,30 @@
+﻿@model IEnumerable<BanHangOnline.Models.ShoppingCartItem>
+@using BanHangOnline.Models.Common;
+
+
+@if (Model != null && Model.Any())
+{
+    <h3>Giỏ hàng <span style="float:right;">@Model.Count()</span></h3>
+    var i = 0;
+    var totalPriveThanhToan = decimal.Zero;
+    <div style="border:1px solid #808080">
+        <table class="table table-hover">
+            @foreach (var item in Model)
+            {
+                totalPriveThanhToan += item.TotalPrice;
+                <tr>
+                    <td>@item.ProductName</td>
+                    <td>@Common.FormatNumber(item.Price, 0)</td>
+                </tr>
+            }
+            <tr>
+                <td>Tổng tiền:</td>
+                <td>@Common.FormatNumber(totalPriveThanhToan, 0)</td>
+            </tr>
+        </table>
+    </div>
+}
+else
+{
+
+}
