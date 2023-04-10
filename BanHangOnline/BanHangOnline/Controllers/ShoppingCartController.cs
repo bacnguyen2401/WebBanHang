@@ -1,4 +1,5 @@
 ﻿using BanHangOnline.Models;
+using BanHangOnline.Models.EF;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,9 +15,9 @@ namespace BanHangOnline.Controllers
         public ActionResult Index()
         {
             ShoppingCart cart = (ShoppingCart)Session["cart"];
-            if(cart != null)
+            if(cart != null && cart.items.Any())
             {
-                return View(cart.items);
+                ViewBag.CkeckCart = cart;
             }
             return View();
         }
@@ -24,17 +25,22 @@ namespace BanHangOnline.Controllers
         public ActionResult CheckOut()
         {
             ShoppingCart cart = (ShoppingCart)Session["cart"];
-            if (cart != null)
+            if (cart != null && cart.items.Any())
             {
                 ViewBag.CkeckCart = cart;
             }
             return View();
         }
 
+        public ActionResult CheckOutSuccess()
+        {
+            return View();
+        }
+
         public ActionResult Partial_Item_ThanhToan()
         {
             ShoppingCart cart = (ShoppingCart)Session["cart"];
-            if (cart != null)
+            if (cart != null && cart.items.Any())
             {
                 return PartialView(cart.items);
             }
@@ -44,7 +50,7 @@ namespace BanHangOnline.Controllers
         public ActionResult Partial_Item_Cart()
         {
             ShoppingCart cart = (ShoppingCart)Session["cart"];
-            if (cart != null)
+            if (cart != null && cart.items.Any() )
             {
                 return PartialView(cart.items);
             }
@@ -55,11 +61,54 @@ namespace BanHangOnline.Controllers
         public ActionResult ShowCount()
         {
             ShoppingCart cart = (ShoppingCart)Session["cart"];
-            if (cart != null)
+            if (cart != null && cart.items.Any())
             {
                 return Json(new { Count = cart.items.Count } , JsonRequestBehavior.AllowGet);
             }
             return Json(new { Count = 0 }, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult Partial_CheckOut()
+        {
+            return PartialView();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CheckOut(OrderViewModel model)
+        {
+            var code = new { Success = false, Code = -1 };
+            if(ModelState.IsValid)
+            {
+                ShoppingCart cart = (ShoppingCart)Session["cart"];
+                if (cart != null && cart.items.Any() )
+                {
+                    Order order = new Order();
+                    order.CustomerName = model.CustomerName;
+                    order.Phone = model.Phone;
+                    order.Address = model.Address;
+                    cart.items.ForEach(x => order.Details.Add(new OrderDetail
+                    {
+                        ProductId = x.ProductId,
+                        Quantity = x.Quantity,
+                        Price = x.Price
+                    }));
+                    order.TotalAmount = cart.items.Sum(x => (x.Price * x.Quantity));
+                    order.TypePayment = model.TypePayment;
+                    Random random = new Random();
+                    order.Code = "DH" + random.Next(0, 9) + random.Next(0, 9) + random.Next(0, 9) + random.Next(0, 9);
+                    //order.Email = model.Email;
+                    order.CreatedDate = DateTime.Now;
+                    order.ModifiedDate = DateTime.Now;
+                    order.CreatedBy = model.Phone;
+
+                    _dbConect.Orders.Add(order);
+                    _dbConect.SaveChanges();
+                    cart.ClearCart();
+                   return RedirectToAction("CheckOutSuccess");
+                }
+            }
+            return Json(code);
         }
 
         [HttpPost]
@@ -77,7 +126,7 @@ namespace BanHangOnline.Controllers
             {
                 ShoppingCart cart = (ShoppingCart)Session["cart"];
 
-                if (cart == null)
+                if (cart == null )
                 {
                     cart = new ShoppingCart();
                 }
@@ -117,7 +166,7 @@ namespace BanHangOnline.Controllers
         public ActionResult Update(int id , int quantity)
         {
             ShoppingCart cart = (ShoppingCart)Session["cart"];
-            if (cart != null)
+            if (cart != null && cart.items.Any())
             {
                 cart.UpdateQuantity(id,quantity);
                 return Json(new { Success = true });
@@ -138,7 +187,7 @@ namespace BanHangOnline.Controllers
 
             ShoppingCart cart = (ShoppingCart)Session["cart"];
 
-            if (cart != null)
+            if (cart != null && cart.items.Any())
             {
                 var checkProduct = cart.items.FirstOrDefault(x => x.ProductId == id);
                 if(checkProduct != null)
@@ -161,7 +210,7 @@ namespace BanHangOnline.Controllers
         public ActionResult DeleteAll()
         {
             ShoppingCart cart = (ShoppingCart)Session["cart"];
-            if(cart != null)
+            if(cart != null && cart.items.Any())
             {
                 cart.ClearCart();
                 return Json(new {Success =  true});

@@ -204,6 +204,10 @@
     <Compile Include="Migrations\202303311237061_updateSaleNull.designer.cs">
       <DependentUpon>202303311237061_updateSaleNull.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202304091132134_updatePayment.cs" />
+    <Compile Include="Migrations\202304091132134_updatePayment.designer.cs">
+      <DependentUpon>202304091132134_updatePayment.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CommonAbstract.cs" />
@@ -224,6 +228,7 @@
     <Compile Include="Models\EF\SystemSetting.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\OrderViewModel.cs" />
     <Compile Include="Models\ShoppingCart.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -3378,6 +3383,8 @@
     <Content Include="Views\ShoppingCart\Partial_Item_Cart.cshtml" />
     <Content Include="Views\ShoppingCart\CheckOut.cshtml" />
     <Content Include="Views\ShoppingCart\Partial_Item_ThanhToan.cshtml" />
+    <Content Include="Views\ShoppingCart\Partial_CheckOut.cshtml" />
+    <Content Include="Views\ShoppingCart\CheckOutSuccess.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -3406,6 +3413,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202303311237061_updateSaleNull.resx">
       <DependentUpon>202303311237061_updateSaleNull.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304091132134_updatePayment.resx">
+      <DependentUpon>202304091132134_updatePayment.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
