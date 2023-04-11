@@ -25,6 +25,13 @@ namespace BanHangOnline.Controllers
         public ActionResult Detail(int id)
         {
             var item = _dbConect.Products.Find(id);
+            if(item != null)
+            {
+                _dbConect.Products.Attach(item);
+                item.VỉewCount = item.VỉewCount + 1;
+                _dbConect.Entry(item).Property(x => x.VỉewCount).IsModified = true;
+                _dbConect.SaveChanges();
+            }
             return View(item);
         }
 
