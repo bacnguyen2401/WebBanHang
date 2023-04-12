@@ -219,6 +219,10 @@
     <Compile Include="Migrations\202304111225292_updateThongKe.designer.cs">
       <DependentUpon>202304111225292_updateThongKe.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202304121348132_UpdateEmail2.cs" />
+    <Compile Include="Migrations\202304121348132_UpdateEmail2.designer.cs">
+      <DependentUpon>202304121348132_UpdateEmail2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CommonAbstract.cs" />
@@ -3128,6 +3132,8 @@
     <Content Include="Content\clients\plugins\uplot\uPlot.iife.min.js" />
     <Content Include="Content\clients\plugins\uplot\uPlot.min.css" />
     <Content Include="Content\PagedList.css" />
+    <Content Include="Content\templates\send1.html" />
+    <Content Include="Content\templates\send2.html" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -3437,6 +3443,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202304111225292_updateThongKe.resx">
       <DependentUpon>202304111225292_updateThongKe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304121348132_UpdateEmail2.resx">
+      <DependentUpon>202304121348132_UpdateEmail2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
