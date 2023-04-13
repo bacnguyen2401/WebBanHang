@@ -1,0 +1,127 @@
+﻿@model BanHangOnline.Models.EF.Order
+@using PagedList.Mvc
+@{
+    ViewBag.Title = "Chi tiết đơn hàng";
+}
+@section naviheader{
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="/admin/home" class="nav-link">Trang chủ</a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="#" class="nav-link">Chi tiết đơn hàng</a>
+        </li>
+    </ul>
+}
+
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Chi tiết đơn hàng</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+                    <li class="breadcrumb-item active">Chi tiết đơn hàng</li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+
+<!-- Main content -->
+<section class="content">
+    <!-- Default box -->
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Danh sách đơn hàng</h3>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Mã đơn hàng</label>
+                        <span class="form-control">@Model.Code</span>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Họ tên khách</label>
+                        <span class="form-control">@Model.CustomerName</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Tổng tiền</label>
+                        <span class="form-control">@BanHangOnline.Models.Common.Common.FormatNumber(Model.TotalAmount, 0)</span>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Số điện thoại</label>
+                        <span class="form-control">@Model.Phone</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Ngày tạo</label>
+                        <span class="form-control">@Model.CreatedDate.ToString("dd/MM/yyyy")</span>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Email</label>
+                        <span class="form-control">@Model.Email</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Trạng thái</label>
+                        <span class="form-control">@(Model.TypePayment == 1 ? "Chưa thanh toán" : "Đã thanh toán")</span>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <h2>Danh sách sản phẩm</h2>
+                </div>
+                <div class="col-12">
+                    @Html.Action("Partial_SanPhan", "Order", new { id = Model.Id });
+                </div>
+            </div>
+
+        </div>
+        <!-- /.card-body -->
+        <div class="card-footer">
+
+        </div>
+        <!-- /.card-footer-->
+    </div>
+    <!-- /.card -->
+
+</section>
+<!-- /.content -->

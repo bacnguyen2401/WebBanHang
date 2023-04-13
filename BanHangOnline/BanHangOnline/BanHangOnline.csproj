@@ -185,6 +185,7 @@
     <Compile Include="Areas\Admin\Controllers\CategoryController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\NewsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\OrderController.cs" />
     <Compile Include="Areas\Admin\Controllers\PostsController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductCategoryController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductImageController.cs" />
@@ -222,6 +223,10 @@
     <Compile Include="Migrations\202304121348132_UpdateEmail2.cs" />
     <Compile Include="Migrations\202304121348132_UpdateEmail2.designer.cs">
       <DependentUpon>202304121348132_UpdateEmail2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202304130224365_updatevVitual.cs" />
+    <Compile Include="Migrations\202304130224365_updatevVitual.designer.cs">
+      <DependentUpon>202304130224365_updatevVitual.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -3343,6 +3348,9 @@
     <Content Include="Content\assets\plugins\themify-icons\fonts\themify.eot" />
     <Content Include="Content\assets\plugins\themify-icons\fonts\themify.ttf" />
     <Content Include="Content\assets\plugins\themify-icons\fonts\themify.woff" />
+    <Content Include="Areas\Admin\Views\Order\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Order\View.cshtml" />
+    <Content Include="Areas\Admin\Views\Order\Partial_SanPhan.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -3446,6 +3454,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202304121348132_UpdateEmail2.resx">
       <DependentUpon>202304121348132_UpdateEmail2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304130224365_updatevVitual.resx">
+      <DependentUpon>202304130224365_updatevVitual.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

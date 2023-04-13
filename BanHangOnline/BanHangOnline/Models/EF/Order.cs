@@ -29,6 +29,6 @@ namespace BanHangOnline.Models.EF
         public decimal TotalAmount { get; set; }
         public int Quantity { get; set; }
         public int TypePayment { get; set; }
-        public ICollection<OrderDetail> Details { get; set; }
+        public virtual ICollection<OrderDetail> Details { get; set; }
     }
 }
