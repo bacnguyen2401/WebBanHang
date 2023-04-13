@@ -8,6 +8,7 @@ using PagedList;
 
 namespace BanHangOnline.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class OrderController : Controller
     {
         // GET: Admin/Order

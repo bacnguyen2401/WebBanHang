@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace BanHangOnline.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Admin ,Employee")]
     public class PostsController : Controller
     {
         // GET: Admin/Posts
