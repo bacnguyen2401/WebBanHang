@@ -232,6 +232,10 @@
     <Compile Include="Migrations\202304130224365_updatevVitual.designer.cs">
       <DependentUpon>202304130224365_updatevVitual.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202304140249350_updateSubcribe.cs" />
+    <Compile Include="Migrations\202304140249350_updateSubcribe.designer.cs">
+      <DependentUpon>202304140249350_updateSubcribe.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CommonAbstract.cs" />
@@ -3502,10 +3506,12 @@
     <Content Include="Views\ShoppingCart\CheckOutSuccess.cshtml" />
     <Content Include="Views\Home\Refresh.cshtml" />
     <Content Include="Views\News\Partial_News_Home.cshtml" />
+    <Content Include="Views\Home\Partial_Subcrice.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\Admin\Views\Demo\" />
     <Folder Include="Content\ckfinder\userfiles\" />
   </ItemGroup>
   <ItemGroup>
@@ -3545,6 +3551,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202304130224365_updatevVitual.resx">
       <DependentUpon>202304130224365_updatevVitual.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304140249350_updateSubcribe.resx">
+      <DependentUpon>202304140249350_updateSubcribe.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
