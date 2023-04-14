@@ -13,13 +13,20 @@ namespace BanHangOnline.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
         public ActionResult Index()
         {
-            return View();
+            var items = db.News.ToList();
+            return View(items);
         }
 
         public ActionResult Partial_News_Home()
         {
             var items = db.News.Take(3).ToList();
             return PartialView(items);
+        }
+
+        public ActionResult Detail(int id)
+        {
+            var item = db.News.Find(id);
+            return View(item);
         }
     }
 }

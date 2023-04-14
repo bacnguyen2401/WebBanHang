@@ -57,6 +57,20 @@ namespace BanHangOnline
            );
 
             routes.MapRoute(
+            name: "NewsList",
+            url: "tin-tuc",
+            defaults: new { controller = "News", action = "Index", alias = UrlParameter.Optional },
+            namespaces: new[] { "BanHangOnline.Controllers" }
+             );
+
+            routes.MapRoute(
+              name: "DetailNew",
+              url: "{alias}-n{id}",
+              defaults: new { controller = "News", action = "Detail", id = UrlParameter.Optional },
+              namespaces: new[] { "BanHangOnline.Controllers" }
+             );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 //name: "Home",
