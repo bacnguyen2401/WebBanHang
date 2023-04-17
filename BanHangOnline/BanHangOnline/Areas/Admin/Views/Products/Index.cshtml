@@ -90,10 +90,16 @@
                             var strCheck = item.IsActive ? "<i class='fa fa-check text-success'></i>" : "<i class='fa fa-ban text-danger'></i>";
                             var strCheckHome = item.IsHome ? "<i class='fa fa-check text-success'></i>" : "<i class='fa fa-ban text-danger'></i>";
                             var strCheckSale = item.IsSale ? "<i class='fa fa-check text-success'></i>" : "<i class='fa fa-ban text-danger'></i>";
+                            var strImg = "";
+                            var checkImage = item.ProductImage.FirstOrDefault(x => x.IsDefault);
+                            if (checkImage != null)
+                            {
+                                strImg = checkImage.Image;
+                            }
                             <tr id="trow_@item.Id">
                                 <td><input type="checkbox" class="cbkItem" value="@item.Id" /></td>
                                 <td>@i</td>
-                                <td><img class="imgproduct" data-id="@item.Id" src="@item.ProductImage.FirstOrDefault(x=>x.IsDefault).Image" width="50" /></td>
+                                <td><img class="imgproduct" data-id="@item.Id" src="@strImg" width="50" /></td>
                                 <td>@item.Title</td>
                                 <td>@item.ProductCategory.Title</td>
                                 <td>@item.Quantity</td>

@@ -123,6 +123,15 @@ namespace BanHangOnline.Areas.Admin.Controllers
             var item = _dbConect.Products.Find(id);
             if (item != null)
             {
+                var checkImg = item.ProductImage.Where(x => x.ProductId == item.Id);
+                if(checkImg != null)
+                {
+                    foreach(var img in checkImg)
+                    {
+                        _dbConect.ProductImages.Remove(img);
+                        _dbConect.SaveChanges();
+                    }
+                }
                 _dbConect.Products.Remove(item);
                 _dbConect.SaveChanges();
                 return Json(new { success = true });
