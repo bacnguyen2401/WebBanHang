@@ -31,6 +31,7 @@ namespace BanHangOnline.Models.EF
         public string Detail { get; set; }
         [StringLength(250)]
         public string Image { get; set; }
+        public decimal OriginalPrice { get; set; }
         [StringLength(250)]
         public string SeoTitle { get; set; }
         [StringLength(500)]

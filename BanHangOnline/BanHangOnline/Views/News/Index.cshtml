@@ -1,4 +1,7 @@
-﻿@model IEnumerable<BanHangOnline.Models.EF.News>
+﻿@*@model IEnumerable<BanHangOnline.Models.EF.News>*@
+@model PagedList.PagedList<BanHangOnline.Models.EF.News>
+@using PagedList.Mvc;
+@using PagedList;
 @{
     ViewBag.Title = "Index";
 }
@@ -7,8 +10,8 @@
         margin-top: 200px;
     }
 
-    .row-item-new{
-        margin-bottom:20px;
+    .row-item-new {
+        margin-bottom: 20px;
     }
 
     .title-News {
@@ -17,9 +20,10 @@
         padding: 15px 15px;
         margin-bottom: 25px;
     }
-    .img-box img{
-        max-width:100%;
-        max-height:100%
+
+    .img-box img {
+        max-width: 100%;
+        max-height: 100%
     }
 </style>
 
@@ -52,6 +56,9 @@
                 </div>
             </div>
         }
+        <div class="text-center">
+            @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+        </div>
     }
 
 

@@ -102,27 +102,37 @@
                                         </div>
 
                                         <div class="row">
-                                            <div class="col-4">
+                                            <div class="col-3">
                                                 <div class="form-group">
                                                     <label for="exampleInputEmail1">Số lượng</label>
                                                     @Html.TextBoxFor(x => x.Quantity, new { @class = "form-control", @Value = "1" })
                                                     @Html.ValidationMessageFor(x => x.Quantity, null, new { @class = "text-danger" })
                                                 </div>
                                             </div>
-                                            <div class="col-4">
+                                            <div class="col-3">
                                                 <div class="form-group">
                                                     <label for="exampleInputEmail1">Giá</label>
-                                                    <input type="text" name="demoPrice" value="0" id="demoPrice" class="form-control auto" data-a-dec="," data-a-sep="." placeholder="Giá">
+                                                    <input type="text" name="demoPrice" value="0" id="demoPrice" class="form-control auto">
                                                     @Html.HiddenFor(x => x.Price, new { @placeholder = "Giá" })
                                                     @Html.ValidationMessageFor(x => x.Price, null, new { @class = "text-danger" })
                                                 </div>
                                             </div>
-                                            <div class="col-4">
+                                            <div class="col-3">
                                                 <div class="form-group">
                                                     <label for="exampleInputEmail1">Giá khuyến mại</label>
-                                                    <input type="text" name="demoPriceSale" value="0" id="demoPriceSale" class="form-control auto" data-a-dec="," data-a-sep="." placeholder="Giá khuyến mạ">
+                                                    <input type="text" name="demoPriceSale" value="0" id="demoPriceSale" class="form-control auto">
                                                     @Html.HiddenFor(x => x.PriceSale, new { @placeholder = "Giá khuyến mãi" })
+                                                    @Html.ValidationMessageFor(x => x.PriceSale, null, new { @class = "text-danger" })
 
+                                                </div>
+                                            </div>
+
+                                            <div class="col-3">
+                                                <div class="form-group">
+                                                    <label for="exampleOrigin">Giá nhập</label>
+                                                    <input type="text" name="demoOriginPrice" value="0" id="demoOriginPrice" class="form-control auto">
+                                                    @Html.HiddenFor(x => x.OriginalPrice, new { @placeholder = "Giá nhập" })
+                                                    @Html.ValidationMessageFor(x => x.OriginalPrice, null, new { @class = "text-danger" })
                                                 </div>
                                             </div>
                                         </div>
@@ -250,6 +260,12 @@
                 var demoGet = $('#demoPriceSale').autoNumeric('get');
                 $('#PriceSale').val(demoGet);
                 $('#PriceSale').autoNumeric('set', demoGet);
+            });
+
+            $('#demoOriginPrice').bind('blur focusout keypress keyup', function () {
+                var demoGet = $('#demoOriginPrice').autoNumeric('get');
+                $('#OriginPrice').val(demoGet);
+                $('#OriginPrice').autoNumeric('set', demoGet);
             });
 
 

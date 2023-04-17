@@ -193,6 +193,7 @@
     <Compile Include="Areas\Admin\Controllers\ProductsController.cs" />
     <Compile Include="Areas\Admin\Controllers\RoleController.cs" />
     <Compile Include="Areas\Admin\Controllers\SettingSystemController.cs" />
+    <Compile Include="Areas\Admin\Controllers\StatisticalController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -235,6 +236,10 @@
     <Compile Include="Migrations\202304140249350_updateSubcribe.cs" />
     <Compile Include="Migrations\202304140249350_updateSubcribe.designer.cs">
       <DependentUpon>202304140249350_updateSubcribe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202304170844271_updateOriginPrice.cs" />
+    <Compile Include="Migrations\202304170844271_updateOriginPrice.designer.cs">
+      <DependentUpon>202304170844271_updateOriginPrice.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -3440,6 +3445,7 @@
     <Content Include="Content\assets\dist\js\adminlte.min.js.map" />
     <Content Include="Areas\Admin\Views\SettingSystem\Partial_Setting.cshtml" />
     <Content Include="Areas\Admin\Views\SettingSystem\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Statistical\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -3556,6 +3562,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202304140249350_updateSubcribe.resx">
       <DependentUpon>202304140249350_updateSubcribe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304170844271_updateOriginPrice.resx">
+      <DependentUpon>202304170844271_updateOriginPrice.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
