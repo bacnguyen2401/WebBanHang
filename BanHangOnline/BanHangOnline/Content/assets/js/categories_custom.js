@@ -364,7 +364,7 @@ jQuery(document).ready(function($)
 	        	$('.product-grid').isotope({
 		            filter: function()
 					{
-						//debugger;
+						debugger;
 		            	var priceRange = $('#amount').val();
 			        	var priceMin = parseFloat(priceRange.split('-')[0].replace('VND', ''));
 						var priceMax = parseFloat(priceRange.split('-')[1].replace('VND', ''));

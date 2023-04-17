@@ -56,12 +56,29 @@ namespace BanHangOnline
                namespaces: new[] { "BanHangOnline.Controllers" }
            );
 
+
+            routes.MapRoute(
+            name: "BaiViet",
+            url: "bai-viet",
+            defaults: new { controller = "Article", action = "Index", id = UrlParameter.Optional },
+            namespaces: new[] { "BanHangOnline.Controllers" }
+             );
+
+            routes.MapRoute(
+             name: "DetailPost",
+             url: "{alias}-p{id}",
+             defaults: new { controller = "Article", action = "Detail", id = UrlParameter.Optional },
+             namespaces: new[] { "BanHangOnline.Controllers" }
+            );
+
+
             routes.MapRoute(
             name: "NewsList",
             url: "tin-tuc",
             defaults: new { controller = "News", action = "Index", alias = UrlParameter.Optional },
             namespaces: new[] { "BanHangOnline.Controllers" }
              );
+
 
             routes.MapRoute(
               name: "DetailNew",
