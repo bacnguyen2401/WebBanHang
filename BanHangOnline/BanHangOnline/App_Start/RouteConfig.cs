@@ -27,6 +27,12 @@ namespace BanHangOnline
           namespaces: new[] { "BanHangOnline.Controllers" }
         );
 
+            routes.MapRoute(
+                name: "Introduce",
+                url: "gioi-thieu",
+                defaults: new { controller = "Introduce", action = "Index", id = UrlParameter.Optional },
+                namespaces: new[] { "BanHangOnline.Controllers" }
+            );
 
             routes.MapRoute(
              name: "Contact",
