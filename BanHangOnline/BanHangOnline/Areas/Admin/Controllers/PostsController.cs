@@ -32,7 +32,7 @@ namespace BanHangOnline.Areas.Admin.Controllers
             {
                 model.CreatedDate = DateTime.Now;
                 model.ModifiedDate = DateTime.Now;
-                model.CategoryId = 6;
+                model.CategoryId = 7;
                 model.Alias = BanHangOnline.Models.Common.Filter.FilterChar(model.Title);
                 _dbConect.Posts.Add(model);
                 _dbConect.SaveChanges();

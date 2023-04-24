@@ -243,6 +243,14 @@
     <Compile Include="Migrations\202304170844271_updateOriginPrice.designer.cs">
       <DependentUpon>202304170844271_updateOriginPrice.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202304241508341_addLengthAliasNews.cs" />
+    <Compile Include="Migrations\202304241508341_addLengthAliasNews.designer.cs">
+      <DependentUpon>202304241508341_addLengthAliasNews.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202304241512439_updateModelNew.cs" />
+    <Compile Include="Migrations\202304241512439_updateModelNew.designer.cs">
+      <DependentUpon>202304241512439_updateModelNew.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CommonAbstract.cs" />
@@ -3524,7 +3532,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
-    <Folder Include="Areas\Admin\Views\Demo\" />
     <Folder Include="Content\ckfinder\userfiles\" />
   </ItemGroup>
   <ItemGroup>
@@ -3570,6 +3577,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202304170844271_updateOriginPrice.resx">
       <DependentUpon>202304170844271_updateOriginPrice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304241508341_addLengthAliasNews.resx">
+      <DependentUpon>202304241508341_addLengthAliasNews.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304241512439_updateModelNew.resx">
+      <DependentUpon>202304241512439_updateModelNew.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
