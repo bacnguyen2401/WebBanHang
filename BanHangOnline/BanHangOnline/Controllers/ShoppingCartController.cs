@@ -147,9 +147,12 @@ namespace BanHangOnline.Controllers
                     BanHangOnline.Models.Common.Common.SendMail("ShopOnline", "Đơn hàng mới  #" + order.Code, contentCustomer1.ToString(), ConfigurationManager.AppSettings["EmailAdmin"]);
 
                     cart.ClearCart();
-                    return RedirectToAction("CheckOutSuccess");
+                    code = new { Success = true, Code = 1 };
+                    //return RedirectToAction("CheckOutSuccess");
+                    return Json(code);
                 }
             }
+            //return RedirectToAction("CheckOutSuccess");
             return Json(code);
         }
 

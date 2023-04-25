@@ -36,7 +36,6 @@
             @if (ViewBag.CkeckCart != null)
             {
                 <div class="row">
-                    <div style="display:none" id="show_success"></div>
                     <div class="col-md-9">
                         @Html.Action("Partial_CheckOut", "ShoppingCart")
                     </div>
@@ -62,13 +61,13 @@
     <script>
         function OnSuccessCO(rs) {
             if (rs.Success) {
-                $("#show_success").html("Bạn mua hàng thành công");
+                window.location = 'https://localhost:44385/ShoppingCart/CheckOutSuccess';
             }
         }
 
         function OnFailure(rs) {
             if (!rs.Success) {
-                $("#show_success").html("Bạn mua hàng thất bại! Xin vui lòng thử  lại");
+                alert("Bạn mua hàng thất bại! Xin vui lòng thử  lại");
             }
         }
 

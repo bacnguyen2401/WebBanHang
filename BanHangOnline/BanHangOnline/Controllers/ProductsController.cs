@@ -61,7 +61,7 @@ namespace BanHangOnline.Controllers
 
         public ActionResult Partial_ProductSales()
         {
-            var items = _dbConect.Products.Where(x => x.IsHome && x.IsActive).Take(12).ToList();
+            var items = _dbConect.Products.Where(x => x.IsHome && x.IsActive && x.IsSale).Take(12).ToList();
             return PartialView(items);
         }
     }
