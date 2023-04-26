@@ -13,7 +13,7 @@ namespace BanHangOnline.Controllers
         ApplicationDbContext _dbConect = new ApplicationDbContext();
         public ActionResult Index(int? id)
         {
-            
+
             var items = _dbConect.Products.ToList();
             if (id != null)
             {
@@ -25,7 +25,7 @@ namespace BanHangOnline.Controllers
         public ActionResult Detail(int id)
         {
             var item = _dbConect.Products.Find(id);
-            if(item != null)
+            if (item != null)
             {
                 _dbConect.Products.Attach(item);
                 item.VỉewCount = item.VỉewCount + 1;
@@ -35,20 +35,20 @@ namespace BanHangOnline.Controllers
             return View(item);
         }
 
-        public ActionResult ProductCategory(string alias , int? id)
+        public ActionResult ProductCategory(string alias, int? id)
         {
 
             var items = _dbConect.Products.ToList();
-            if (id  > 0)
+            if (id > 0)
             {
                 items = items.Where(x => x.ProductCategoryId == id).ToList();
             }
             var cate = _dbConect.ProductCategories.Find(id);
-            if(cate != null)
+            if (cate != null)
             {
                 ViewBag.CateName = cate.Title;
-            }    
-                
+            }
+
             ViewBag.CateId = id;
             return View(items);
         }
@@ -61,7 +61,7 @@ namespace BanHangOnline.Controllers
 
         public ActionResult Partial_ProductSales()
         {
-            var items = _dbConect.Products.Where(x => x.IsHome && x.IsActive && x.IsSale).Take(12).ToList();
+            var items = _dbConect.Products.Where(x => x.IsActive && x.IsSale).Take(12).ToList();
             return PartialView(items);
         }
     }
